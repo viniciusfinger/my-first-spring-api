@@ -1,4 +1,4 @@
-# API Java em desenvolvimento
+# API de Compras em Java + Spring
 
 
 Modelo de domínio:
