@@ -4,8 +4,16 @@ Modelo de domínio:
 ![Captura de tela](https://github.com/viniciusfinger/temp-api-spring/blob/master/imagens/modelo_dominio.PNG "Modelo de domínio da API")
 
 
-# End-points:
+# Documentação:
+
+ Para acessar o banco de dados H2 (incorporado no projeto):
+  * URL: {{url}}/h2-console/
+  * JDBC-URL: jdbc:h2:mem:testdb
+  * User: sa
+  * Senha: (em branco)
  
+ 
+ # End-points:
  Usuários:
  - Buscar todos:   {{url}}/users
  - Buscar específico:  {{url}}/users/id
