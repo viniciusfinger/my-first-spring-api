@@ -2,6 +2,8 @@ package com.viniciusfinger.course.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -17,8 +20,8 @@ import com.viniciusfinger.course.entities.enums.OrderStatus;
 @Entity
 @Table(name = "tb_order") // adicionado para não confundir com o comando "Order" do SQL.
 public class Order implements Serializable {
-
 	private static final long serialVersionUID = 1423659806458074162L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -32,8 +35,11 @@ public class Order implements Serializable {
 	@JoinColumn(name = "client_id")
 	private User client;
 
+	@OneToMany(mappedBy = "id.order") //busca o pedido no orderItemPK 
+	private Set<OrderItem> items = new HashSet<>();
+	
+	
 	public Order() {
-
 	}
 
 	public Order(Long id, Instant moment, OrderStatus orderStatus, User client) {
@@ -76,6 +82,10 @@ public class Order implements Serializable {
 		if (orderStatus != null) {
 			this.orderStatus = orderStatus.getCode();
 		} 
+	}
+	
+	public Set<OrderItem> getItems(){
+		return items;
 	}
 
 	@Override
