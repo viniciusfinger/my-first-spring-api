@@ -15,17 +15,18 @@ Modelo de domínio:
  
  # End-points:
  Usuários:
- - Buscar todos:   {{url}}/users
- - Buscar específico:  {{url}}/users/id
+ - Adicionar:  @POST {{url}}/users/id
+ - Buscar todos:   @GET {{url}}/users
+ - Buscar específico:  @GET {{url}}/users/id
   
  Pedidos:
- - Buscar todos:   {{url}}/orders
- - Buscar específico:  {{url}}/orders/id
+ - Buscar todos:   @GET {{url}}/orders
+ - Buscar específico:  @GET {{url}}/orders/id
    
  Categorias:
- - Buscar todas:   {{url}}/categories
- - Buscar específica:  {{url}}/categories/id
+ - Buscar todas:   @GET {{url}}/categories
+ - Buscar específica:  @GET {{url}}/categories/id
  
   Produtos:
- - Buscar todas:   {{url}}/products
- - Buscar específica:  {{url}}/products/id
+ - Buscar todas:   @GET {{url}}/products
+ - Buscar específica:  @GET {{url}}/products/id
