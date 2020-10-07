@@ -31,7 +31,9 @@ public class UserService {
 		}
 	}
 	
-	public User insert(User obj) {
-		return repository.save(obj);
+	public ResponseEntity insert(User obj) {
+		User objRetorno = repository.save(obj);
+		return ResponseEntity.status(201).body(objRetorno);
+		
 	}
 }
