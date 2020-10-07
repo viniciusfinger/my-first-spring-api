@@ -16,6 +16,8 @@ Modelo de domínio:
  # End-points:
  Usuários:
  - Adicionar:  @POST {{url}}/users/id
+ - Atualizar:  @PUT {{url}}/users/id
+ - Remover:  @DELETE {{url}}/users/id
  - Buscar todos:   @GET {{url}}/users
  - Buscar específico:  @GET {{url}}/users/id
   
