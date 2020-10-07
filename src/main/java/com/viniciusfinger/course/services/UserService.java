@@ -36,4 +36,9 @@ public class UserService {
 		return ResponseEntity.status(201).body(objRetorno);
 		
 	}
+	
+	public ResponseEntity delete(Long id) {
+		repository.deleteById(id);
+		return ResponseEntity.noContent().build();
+	}
 }
