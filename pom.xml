@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.viniciusfinger</groupId>
-	<artifactId>course</artifactId>
+	<artifactId>api-loja</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>course</name>
-	<description>Demo project for Spring Boot</description>
+	<name>api-loja</name>
+	<description>API para e-commerce</description>
 
 	<properties>
 		<java.version>11</java.version>

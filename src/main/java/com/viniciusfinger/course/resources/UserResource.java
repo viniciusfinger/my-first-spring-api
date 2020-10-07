@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.HeadersBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestAttribute;
@@ -27,8 +28,8 @@ public class UserResource {
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<User> findById(@PathVariable Long id) {
-		User user = service.findById(id);
-		return ResponseEntity.ok(user);
+	public HeadersBuilder<?> findById(@PathVariable Long id) {
+		HeadersBuilder<?> response = service.findById(id);
+		return response;
 	}
 }

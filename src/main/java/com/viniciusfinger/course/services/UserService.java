@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.HeadersBuilder;
 import org.springframework.stereotype.Service;
 
 import com.viniciusfinger.course.entities.User;
@@ -19,8 +21,15 @@ public class UserService {
 		return repository.findAll();
 	}
 	
-	public User findById(long id) {
+	public HeadersBuilder<?> findById(long id) {
 		Optional<User> obj = repository.findById(id);
-		return obj.get();
+		if (obj.isEmpty()) {
+			@SuppressWarnings("unchecked")
+			HeadersBuilder<?> notFound = ResponseEntity.notFound();
+			return notFound;		
+		} else {
+			User user = obj.get();
+			return (HeadersBuilder<?>) ResponseEntity.ok(user);
+		}
 	}
 }
