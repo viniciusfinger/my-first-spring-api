@@ -7,7 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.ResponseEntity.HeadersBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,8 +29,14 @@ public class UserResource {
 	}
 
 	@GetMapping(value = "/{id}")
-	public HeadersBuilder<?> findById(@PathVariable Long id) {
-		HeadersBuilder<?> response = service.findById(id);
+	public ResponseEntity findById(@PathVariable Long id) {
+		ResponseEntity response = service.findById(id);
 		return response;
 	}
+	
+	@PostMapping
+	public ResponseEntity<User> insert(@RequestBody User obj){
+		obj = service.insert(obj);
+		return ResponseEntity.ok().body(obj);
+	} 
 }

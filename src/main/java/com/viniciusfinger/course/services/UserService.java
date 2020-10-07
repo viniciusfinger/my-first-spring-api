@@ -21,15 +21,17 @@ public class UserService {
 		return repository.findAll();
 	}
 	
-	public HeadersBuilder<?> findById(long id) {
+	public ResponseEntity findById(long id) {
 		Optional<User> obj = repository.findById(id);
 		if (obj.isEmpty()) {
-			@SuppressWarnings("unchecked")
-			HeadersBuilder<?> notFound = ResponseEntity.notFound();
-			return notFound;		
+			return ResponseEntity.notFound().build();	
 		} else {
 			User user = obj.get();
-			return (HeadersBuilder<?>) ResponseEntity.ok(user);
+			return ResponseEntity.ok(user);
 		}
+	}
+	
+	public User insert(User obj) {
+		return repository.save(obj);
 	}
 }
