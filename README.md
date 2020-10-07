@@ -1,4 +1,4 @@
-# API de Compras em Java + Spring
+#🛍 API de Compras em Java + Spring
 
 Modelo de domínio:
 ![Modelo de domínio da API](https://github.com/viniciusfinger/temp-api-spring/blob/master/imagens/modelo_dominio.PNG "Modelo de domínio da API")
