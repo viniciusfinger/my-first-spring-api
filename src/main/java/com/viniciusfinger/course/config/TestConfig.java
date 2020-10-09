@@ -22,7 +22,7 @@ import com.viniciusfinger.course.repository.ProductRepository;
 import com.viniciusfinger.course.repository.UserRepository;
 
 @Configuration
-@Profile("test")
+@Profile("prod")
 public class TestConfig implements CommandLineRunner {
 	
 	//Seeding do banco de dados
