@@ -6,29 +6,24 @@ Modelo de domínio:
 
 # Documentação:
 
- Para acessar o banco de dados H2 (incorporado no projeto):
-  * URL: {{url}}/h2-console/
-  * JDBC-URL: jdbc:h2:mem:testdb
-  * User: sa
-  * Senha: (em branco)
- 
- 
+teste da API:  https://api-loja-spring.herokuapp.com
+
  # End-points:
  Usuários:
- - Adicionar:  @POST {{url}}/users/id
- - Atualizar:  @PUT {{url}}/users/id
- - Remover:  @DELETE {{url}}/users/id
- - Buscar todos:   @GET {{url}}/users
- - Buscar específico:  @GET {{url}}/users/id
+ - Adicionar:  @POST  https://api-loja-spring.herokuapp.com/users/id
+ - Atualizar:  @PUT  https://api-loja-spring.herokuapp.com/users/id
+ - Remover:  @DELETE https://api-loja-spring.herokuapp.com/users/id
+ - Buscar todos:   @GET https://api-loja-spring.herokuapp.com/users
+ - Buscar específico:  @GET https://api-loja-spring.herokuapp.com/users/id
   
  Pedidos:
- - Buscar todos:   @GET {{url}}/orders
- - Buscar específico:  @GET {{url}}/orders/id
+ - Buscar todos:   @GET https://api-loja-spring.herokuapp.com/orders
+ - Buscar específico:  @GET https://api-loja-spring.herokuapp.com/orders/id
    
  Categorias:
- - Buscar todas:   @GET {{url}}/categories
- - Buscar específica:  @GET {{url}}/categories/id
+ - Buscar todas:   @GET https://api-loja-spring.herokuapp.com/categories
+ - Buscar específica:  @GET https://api-loja-spring.herokuapp.com/categories/id
  
   Produtos:
- - Buscar todas:   @GET {{url}}/products
- - Buscar específica:  @GET {{url}}/products/id
+ - Buscar todas:   @GET https://api-loja-spring.herokuapp.com/products
+ - Buscar específica:  @GET https://api-loja-spring.herokuapp.com/products/id
