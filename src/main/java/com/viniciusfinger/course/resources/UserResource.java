@@ -30,9 +30,9 @@ public class UserResource {
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity findById(@PathVariable Long id) {
-		ResponseEntity response = service.findById(id);
-		return response;
+	public User findById(@PathVariable Long id) {
+		User obj = service.findById(id);
+		return obj;
 	}
 	
 	@PostMapping
@@ -43,8 +43,8 @@ public class UserResource {
 	
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity delete(@PathVariable Long id) {
-		ResponseEntity response = service.delete(id);
-		return response;
+		service.delete(id);
+		return ResponseEntity.ok().build();
 	}
 	
 	@PutMapping(value = "/{id}")
@@ -53,6 +53,4 @@ public class UserResource {
 		return ResponseEntity.ok().body(obj);
 	}
 }
-
-
 
