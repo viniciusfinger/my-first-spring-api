@@ -8,12 +8,13 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.viniciusfinger.course.entities.User;
 import com.viniciusfinger.course.exceptions.DatabaseException;
-import com.viniciusfinger.course.exceptions.ResourceNotFoundException;
+import com.viniciusfinger.course.exceptions.DataNotFoundException;
 import com.viniciusfinger.course.repository.UserRepository;
 
 @Service
@@ -28,20 +29,19 @@ public class UserService {
 	
 	public User findById(long id) {
 		Optional<User> obj = repository.findById(id);
-		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
+		return obj.orElseThrow(() -> new DataNotFoundException(id));
 	}
 	
 	public ResponseEntity insert(User obj) {
 		User objRetorno = repository.save(obj);
-		return ResponseEntity.status(201).body(objRetorno);
-		
+		return ResponseEntity.status(HttpStatus.CREATED).body(objRetorno);
 	}
 	
 	public void delete(Long id) {
 		try {
 			repository.deleteById(id);
 		} catch (EmptyResultDataAccessException e) {
-			throw new ResourceNotFoundException(id);
+			throw new DataNotFoundException(id);
 		} catch (DataIntegrityViolationException e) {
 			throw new DatabaseException(e.getMessage());
 		}
@@ -53,7 +53,7 @@ public class UserService {
 			updateData(entity, obj);
 			return repository.save(entity);
 		} catch (EntityNotFoundException e) {
-			throw new ResourceNotFoundException(id);
+			throw new DataNotFoundException(id);
 		}
 	}
 

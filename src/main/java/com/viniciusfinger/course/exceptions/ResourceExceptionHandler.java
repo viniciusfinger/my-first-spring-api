@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ResourceExceptionHandler {
 	
-	@ExceptionHandler(ResourceNotFoundException.class)
-	public ResponseEntity<StandardError> resourceNotFound(ResourceNotFoundException e, HttpServletRequest request) {
+	@ExceptionHandler(DataNotFoundException.class)
+	public ResponseEntity<StandardError> resourceNotFound(DataNotFoundException e, HttpServletRequest request) {
 		String error = "Resource not found.";
 		HttpStatus status = HttpStatus.NOT_FOUND;
 		

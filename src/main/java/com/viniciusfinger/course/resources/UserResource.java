@@ -36,7 +36,7 @@ public class UserResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity insert(@RequestBody User obj){
+	public ResponseEntity<?> insert(@RequestBody User obj){
 		ResponseEntity response = service.insert(obj);
 		return response;
 	}
@@ -53,4 +53,3 @@ public class UserResource {
 		return ResponseEntity.ok().body(obj);
 	}
 }
-
